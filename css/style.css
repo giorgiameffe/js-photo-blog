@@ -5,3 +5,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Intestazione */
+
+header {
+    background-image: url(../img/wall.png);
+    padding: 40px;
+}
+
+h1 {
+    font-size: 70px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Edu TAS Beginner", cursive;
+} 
+
