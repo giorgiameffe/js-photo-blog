@@ -31,41 +31,64 @@ h1 {
 
 /* Corpo della pagina */
 
-main .container {
-    width: 950px;
-    margin: 0 auto;
-    display: flex;
+main {
+    background-image: url(../img/cork.png);
 }
+
+/* Container */
+
+main .container {
+    display: flex;
+    width: 65%;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+/* Row card */
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
 }
 
-/* Contenitore card */
+/* Contenitore card (colonna) */
 
 .col {
-    background-color: bisque;
-    padding: 15px;
-    width: calc((100% - 40px) / 3); 
+    background-color: #ffffff;
+    padding: 15px; 
+    width: calc((100% - 50px) / 3); 
+    position: relative;
 }
+
+/* Img card */
 
 .card-photo {
     height: 260px;
+    padding-bottom: 15px;
 }
 
-
-/* Immagine card */
 .card-photo img {
     object-fit: cover;
     height: 100%;
-    width: 100%;
-    flex-shrink: 0;
 } 
+
+.pin-img {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    right: 50%;
+    transform: translate(50%, -25%);
+}
 
 /* Info card */
 
 .card-info {
-    height: 60px;
+    height: 70px;
+    font-family: "Sometype Mono", monospace;
+    font-style: italic;
+    font-size: 15px;
+    width: 100%;
 }  
