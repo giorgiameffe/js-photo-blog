@@ -20,10 +20,25 @@ axios.get(uri)
             // ottenere il singolo oggetto e salvarlo in una variabile
             const currentArray = arrayElement[i];
             console.log(currentArray);
-            
+
             // ottenere l'url delle immagini e salvarlo in una variabile
             const {url: imageUrl} = currentArray;
             console.log(imageUrl);
+            
+            // prendere elemento html row e salvarlo in una variabile
+            const rowElement = document.querySelector('.row');
+            console.log(rowElement);
+            
+            // aggiungere elemento html per creare le card
+            rowElement.innerHTML += ` <div class="col">
+               <img src="img/pin.svg" class="pin-img" alt="Pin rosso">
+               <div class="card-photo">
+                  <img src="${imageUrl}" alt=""> 
+                </div>
+                <div class="card-info">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid et vero.</p>
+                </div>
+            </div>`
         }
 
     })
