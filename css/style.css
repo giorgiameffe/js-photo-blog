@@ -13,14 +13,14 @@ img {
     width: 100%;
 }
 
-/* Intestazione */
+/* Page header */
 
 header {
     background-image: url(../img/wall.png);
     padding: 40px;
 }
 
-/* titolo */
+/* Title */
 
 h1 {
     font-size: 70px;
@@ -29,7 +29,7 @@ h1 {
     font-family: "Edu TAS Beginner", cursive;
 } 
 
-/* Corpo della pagina */
+/* Page body */
 
 main {
     background-image: url(../img/cork.png);
@@ -38,7 +38,6 @@ main {
 /* Container */
 
 main .container {
-    display: flex;
     width: 65%;
     margin: 0 auto;
     padding-top: 40px;
@@ -50,14 +49,16 @@ main .container {
 .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 25px;
 }
 
-/* Contenitore card (colonna) */
+/* Main container (colonna) */
 
 .col {
     background-color: #ffffff;
     padding: 15px; 
+    width: 300px;
     width: calc((100% - 50px) / 3); 
     position: relative;
 }
@@ -65,7 +66,6 @@ main .container {
 /* Img card */
 
 .card-photo {
-    height: 260px;
     padding-bottom: 15px;
 }
 
@@ -73,6 +73,8 @@ main .container {
     object-fit: cover;
     height: 100%;
 } 
+
+/* Img pin */
 
 .pin-img {
     position: absolute;
@@ -86,9 +88,37 @@ main .container {
 /* Info card */
 
 .card-info {
-    height: 70px;
     font-family: "Sometype Mono", monospace;
     font-style: italic;
     font-size: 15px;
     width: 100%;
 }  
+
+
+/* RESPONSIVE LAYOUT */
+
+/* Tablet */
+
+@media screen and (max-width: 768px) {
+
+    main .container {
+        width: 80%;
+    }
+
+    .col {
+        width: calc((100% - 25px) / 2); 
+    }   
+}
+
+/* Mobile */
+
+@media screen and (max-width: 576px) {
+
+    main .container {
+        width: 70%;
+    }
+
+    .col {
+        width: 80%;
+    }   
+}
