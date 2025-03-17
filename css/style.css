@@ -102,9 +102,7 @@ main .container {
     font-family: "Edu TAS Beginner", sans-serif;
 }
 
-/* body {
-    position: relative;
-} */
+/* Overlay */
 
 .overlay-container {
     position: fixed;
@@ -120,11 +118,19 @@ main .container {
     padding: 25px;
 }
 
+.d-none {
+    display: none;
+}
+
+/* Overlay img */
+
 .overlay-img {
     width: 600px;
     height: 600px;
     background-color: bisque;
 }
+
+/* Overlay button */
 
 .overlay-button {
     margin-bottom: 40px;
@@ -132,6 +138,15 @@ main .container {
     padding: 10px;
     font-weight: 600;
 }
+
+
+
+
+
+
+
+
+
 
 /* RESPONSIVE LAYOUT */
 
