@@ -1,16 +1,26 @@
 // ELEMENTI HTML
 
-// Button
-const buttonElement = document.querySelector('.overlay-button');
-console.log(buttonElement);
+
+// Row
+const rowElement = document.querySelector('.row');
+
 // Overlay
 const overlayElement = document.querySelector('.overlay-container');
 console.log(overlayElement);
-overlayElement.classList.add('d-none');
 
+//Overlay img
+const overlayImgElement = document.querySelector('img');
+console.log(overlayImgElement)
+
+// Bottone da creare
+
+/* <button class="overlay-button">Chiudi</button> */
+
+const buttonElement = document.createElement('button');
+buttonElement.textContent = 'Chiudi';
+buttonElement.classList.add('overlay-button');
 
 // AXIOS
-
 
 // inizializzare la variabile contenente API pictures
 const uri = 'https://lanciweb.github.io/demo/api/pictures/';
@@ -20,28 +30,24 @@ axios.get(uri)
     .then((response) => {
 
         // ottenere l'array di oggetti e salvarlo in una variabile
-        const arrayElement = response.data;
+        const arrayApi = response.data;
+        console.log(arrayApi);
 
         // iterare l'array
-        for (let i = 0; i < arrayElement.length; i++) {
+        for (let i = 0; i < arrayApi.length; i++) {
 
             // ottenere il singolo oggetto e salvarlo in una variabile
-            const currentArray = arrayElement[i];
-
-            // ottenere l'url delle immagini e salvarlo in una variabile
-            const { url: imageUrl, date: imageDate, title: imageTitle } = currentArray;
-
-            // prendere elemento html row e salvarlo in una variabile
-            const rowElement = document.querySelector('.row');
+            const currentArrayApi = arrayApi[i];
+            console.log(currentArrayApi);
 
             // invocare la funzione per creare elemento html
-            rowElement.innerHTML += createHtmlElement(currentArray); 
+            rowElement.innerHTML += createHtmlElement(currentArrayApi); 
+
         }
 
         // Elemento html (array di card)
 
         const cardsElement = document.querySelectorAll('.col');
-        console.log(cardsElement);
 
         // IMMAGINI OVERLAY
 
@@ -51,32 +57,39 @@ axios.get(uri)
 
             const currentCard = cardsElement[i];
             console.log(currentCard);
+            const currentElementApi = arrayApi[i];
+
 
             // aggiungere evento al click dell'immagine (overlay)
 
             currentCard.addEventListener('click', function(){
+                
+                // svuotare l'inner a ogni iterazione per far apparire una singola immagine ad ogni click
+                overlayElement.innerHTML = '';
 
+                //appendere il bottone creato al contenitore padre
+                overlayElement.appendChild(buttonElement);
+                // aggiungere foto all'overlay
+                overlayElement.innerHTML += createHtmlImg(currentElementApi);
+                // modificare il display dell'overlay
                 overlayElement.classList.remove('d-none');
+
+                // richiamare la funzione dell'evento del click del bottone
+                buttonClickFunction();
+ 
             })
+
         }
-
-        // aggiungere evento al click del bottone
-
-        buttonElement.addEventListener ('click', function(){
-
-            overlayElement.classList.add('d-none');
-        })
-
-
 
     })
     .catch(error => {
-        console.log('Errore!');
+        console.log(alert("Attezione! L'indirizzo inserito non è corretto."));
     })
 
 
+// FUNZIONI
 
-// FUNZIONE ELEMENTO HTML
+// Funzione per creare le card
 
 function createHtmlElement(obj) {
 
@@ -90,4 +103,24 @@ function createHtmlElement(obj) {
    <h3 class= "title">${obj.title}</div>
  </div>
 </div>`
+}
+
+// Funzione per creare le immagini overlay
+
+function createHtmlImg (obj) {
+
+    return `<img class="overlay-img" src="${obj.url}" alt="${obj.title}"> `
+
+}
+
+// Funzione per il click del bottone
+
+function buttonClickFunction () {
+
+    const buttonElement = document.querySelector('.overlay-button');
+
+    buttonElement.addEventListener("click", function() {
+        
+        overlayElement.classList.add("d-none");
+    })
 }

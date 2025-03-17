@@ -33,6 +33,7 @@ h1 {
 
 main {
     background-image: url(../img/cork.png);
+    height: 100vh;
 }
 
 /* Container */
@@ -67,6 +68,7 @@ main .container {
 
 .card-photo {
     padding-bottom: 15px;
+    cursor: pointer;
 }
 
 .card-photo img {
@@ -125,9 +127,8 @@ main .container {
 /* Overlay img */
 
 .overlay-img {
-    width: 600px;
-    height: 600px;
-    background-color: bisque;
+    width: 500px;
+    height: 500px;
 }
 
 /* Overlay button */
@@ -137,15 +138,8 @@ main .container {
     font-size: 20px;
     padding: 10px;
     font-weight: 600;
+    cursor: pointer;
 }
-
-
-
-
-
-
-
-
 
 
 /* RESPONSIVE LAYOUT */
