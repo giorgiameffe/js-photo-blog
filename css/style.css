@@ -33,7 +33,6 @@ h1 {
 
 main {
     background-image: url(../img/cork.png);
-    height: 100vh;
 }
 
 /* Container */
@@ -59,9 +58,9 @@ main .container {
 .col {
     background-color: #ffffff;
     padding: 15px; 
-    width: 300px;
     width: calc((100% - 50px) / 3); 
     position: relative;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Img card */
@@ -88,10 +87,6 @@ main .container {
 }
 
 /* Info card */
-
-.card-info {
-    width: 100%;
-}  
 
 .card-info .date {
     font-family: "Sometype Mono", monospace;
@@ -139,6 +134,18 @@ main .container {
     padding: 10px;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* Hover */
+
+.col:hover {
+    transform: scale(1.2) rotate(10deg);
+    z-index: 1;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4);
+}
+
+.col:hover .pin-img {
+    display: none;
 }
 
 

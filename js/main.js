@@ -1,16 +1,13 @@
 // ELEMENTI HTML
 
-
 // Row
 const rowElement = document.querySelector('.row');
 
 // Overlay
 const overlayElement = document.querySelector('.overlay-container');
-console.log(overlayElement);
 
 //Overlay img
 const overlayImgElement = document.querySelector('img');
-console.log(overlayImgElement)
 
 // Bottone da creare
 
@@ -31,14 +28,14 @@ axios.get(uri)
 
         // ottenere l'array di oggetti e salvarlo in una variabile
         const arrayApi = response.data;
-        console.log(arrayApi);
+        // console.log(arrayApi);
 
         // iterare l'array
         for (let i = 0; i < arrayApi.length; i++) {
 
             // ottenere il singolo oggetto e salvarlo in una variabile
             const currentArrayApi = arrayApi[i];
-            console.log(currentArrayApi);
+            // console.log(currentArrayApi);
 
             // invocare la funzione per creare elemento html
             rowElement.innerHTML += createHtmlElement(currentArrayApi); 
@@ -56,8 +53,9 @@ axios.get(uri)
         for (let i = 0; i < cardsElement.length; i++) {
 
             const currentCard = cardsElement[i];
-            console.log(currentCard);
+            // console.log(currentCard);
             const currentElementApi = arrayApi[i];
+            // console.log(currentElementApi);
 
 
             // aggiungere evento al click dell'immagine (overlay)
@@ -69,8 +67,10 @@ axios.get(uri)
 
                 //appendere il bottone creato al contenitore padre
                 overlayElement.appendChild(buttonElement);
+
                 // aggiungere foto all'overlay
                 overlayElement.innerHTML += createHtmlImg(currentElementApi);
+
                 // modificare il display dell'overlay
                 overlayElement.classList.remove('d-none');
 
