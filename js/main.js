@@ -9,9 +9,8 @@ const overlayElement = document.querySelector('.overlay-container');
 //Overlay img
 const overlayImgElement = document.querySelector('img');
 
-// Bottone da creare
 
-/* <button class="overlay-button">Chiudi</button> */
+// Bottone da creare
 
 const buttonElement = document.createElement('button');
 buttonElement.textContent = 'Chiudi';
@@ -57,28 +56,32 @@ axios.get(uri)
             const currentElementApi = arrayApi[i];
             // console.log(currentElementApi);
 
-
             // aggiungere evento al click dell'immagine (overlay)
 
             currentCard.addEventListener('click', function(){
-                
+
                 // svuotare l'inner a ogni iterazione per far apparire una singola immagine ad ogni click
                 overlayElement.innerHTML = '';
-
+                
                 //appendere il bottone creato al contenitore padre
                 overlayElement.appendChild(buttonElement);
 
                 // aggiungere foto all'overlay
                 overlayElement.innerHTML += createHtmlImg(currentElementApi);
-
+                
                 // modificare il display dell'overlay
                 overlayElement.classList.remove('d-none');
 
-                // richiamare la funzione dell'evento del click del bottone
-                buttonClickFunction();
+                // aggiungere eventi al click del bottone
+
+                const buttonOverlayElement = document.querySelector('.overlay-button');
+
+                buttonOverlayElement.addEventListener("click", function() {
+
+                    overlayElement.classList.add("d-none");
+                })
  
             })
-
         }
 
     })
@@ -111,16 +114,4 @@ function createHtmlImg (obj) {
 
     return `<img class="overlay-img" src="${obj.url}" alt="${obj.title}"> `
 
-}
-
-// Funzione per il click del bottone
-
-function buttonClickFunction () {
-
-    const buttonElement = document.querySelector('.overlay-button');
-
-    buttonElement.addEventListener("click", function() {
-        
-        overlayElement.classList.add("d-none");
-    })
 }
